@@ -46,19 +46,20 @@
 |Prefectures  | references| null: false,FK:true|
 | city        | string    | null: false        |
 | address     | string    | null: false        |
-|building_name| string    | null: false        |
+|building_name| string    | unique: true       |
 |phone_number | string    | null: false        |
+| bayer       | reference | null: false,FK:true|
 
 ### Association
-- has_one :order
+- belongs_to :order
 
 ## orders テーブル
 | Column      | Type      | Options            |
 | ------      | ------    | -----------        |
-|buyer_user   | reference | null: false,FK:true|
+| user        | reference | null: false,FK:true|
 | item        | reference | null: false,FK:true|
 
 ### Association
 - belongs_to :user
 - belongs_to :item
-- belongs_to :bayer
+- has_one :bayer
