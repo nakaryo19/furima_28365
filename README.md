@@ -15,7 +15,7 @@
 
 ### Association
 - has_many :items
-- has_many :order
+- has_many :orders
 
 ## items テーブル
 
@@ -56,7 +56,7 @@
 | Column      | Type      | Options            |
 | ------      | ------    | -----------        |
 |buyer_user   | reference | null: false,FK:true|
-| item_id     | reference | null: false,FK:true|
+| item        | reference | null: false,FK:true|
 
 ### Association
 - belongs_to :user
