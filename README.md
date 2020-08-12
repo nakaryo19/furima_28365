@@ -46,9 +46,9 @@
 |Prefectures  | references| null: false,FK:true|
 | city        | string    | null: false        |
 | address     | string    | null: false        |
-|building_name| string    | unique: true       |
+|building_name| string    | t.text             |
 |phone_number | string    | null: false        |
-| bayer       | reference | null: false,FK:true|
+| order       | reference | null: false,FK:true|
 
 ### Association
 - belongs_to :order
