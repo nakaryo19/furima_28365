@@ -15,25 +15,25 @@
 
 ### Association
 - has_many :items
-- has_many :bayer
+- has_many :order
 
 ## items テーブル
 
-| Column | Type   | Options     |
-| ------ | ------ | ----------- |
-| name   | string | null: false |
-| text   | text   | null: false |
-| image  | string | null: false |
-|category| string | null: false |
-| product| integer| null: false |
-|delivery| integer| null: false |
-| area   | integer| null: false |
-| days   | integer| null: false |
-| price  | integer| null: false |
+| Column | Type     | Options                     |
+| ------ | ------   | -----------                 |
+| user   |references| null:false,foreign_key:true |
+| name   | integer  | null: false                 |
+| text   | integer  | null: false                 |
+| image  | integer  | null: false                 |
+|category| integer  | null: false                 |
+| product| integer  | null: false                 |
+|delivery| integer  | null: false                 |
+| area   | integer  | null: false                 |
+| days   | integer  | null: false                 |
+| price  | integer  | null: false                 |
 
 ### Association
 - belongs_to :user
-- has_one :bayer
 - has_one :order
 
 
@@ -52,8 +52,6 @@
 
 ### Association
 - belongs_to :user
-- belongs_to :item
-- has_one : order
 
 ## orders テーブル
 | Column      | Type      | Options            |
@@ -62,5 +60,5 @@
 | item_id     | reference | null: false,FK:true|
 
 ### Association
-- belongs_to :bayer
+- belongs_to :user
 - belongs_to :item
