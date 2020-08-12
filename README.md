@@ -22,9 +22,9 @@
 | Column | Type     | Options                     |
 | ------ | ------   | -----------                 |
 | user   |references| null:false,foreign_key:true |
-| name   | integer  | null: false                 |
-| text   | integer  | null: false                 |
-| image  | integer  | null: false                 |
+| name   | string   | null: false                 |
+| text   | string   | null: false                 |
+| image  | string   | null: false                 |
 |category| integer  | null: false                 |
 | product| integer  | null: false                 |
 |delivery| integer  | null: false                 |
@@ -41,7 +41,6 @@
 
 | Column      | Type      | Options            |
 | ------      | ------    | -----------        |
-| creditcard  | string    | null: false        |
 | remit       | string    | null: false        |
 | code        | string    | null: false        |
 |Prefectures  | references| null: false,FK:true|
@@ -51,14 +50,15 @@
 |phone_number | string    | null: false        |
 
 ### Association
-- belongs_to :user
+- has_one :order
 
 ## orders テーブル
 | Column      | Type      | Options            |
 | ------      | ------    | -----------        |
-|buyer_user_id| reference | null: false,FK:true|
+|buyer_user   | reference | null: false,FK:true|
 | item_id     | reference | null: false,FK:true|
 
 ### Association
 - belongs_to :user
 - belongs_to :item
+- belongs_to :bayer
