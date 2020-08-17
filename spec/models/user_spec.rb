@@ -102,18 +102,19 @@ RSpec.describe User, type: :model do
         expect(user.errors[:family_name_kana]).to include("はカタカナで入力してください")
       end
 
-    it"first_name_kanaが空では登録できないこと" do
-      @user.first_name_kana = nil
-      @user.vaild?
-      expect(@user.errors.full_messages).to include("First_name_kana can't be blank")
-    end
+      it"first_name_kanaが空では登録できないこと" do
+        @user.first_name_kana = nil
+        @user.vaild?
+        expect(@user.errors.full_messages).to include("First_name_kana can't be blank")
+      end
 
-    it 'first_name_kanaがカタカナで返ること' do
-      user = build(:user, first_name_kana: "kana")
-      user.valid?
-      expect(user.errors[:first_name_kana]).to include("はカタカナで入力してください")
+      it 'first_name_kanaがカタカナで返ること' do
+        user = build(:user, first_name_kana: "kana")
+        user.valid?
+        expect(user.errors[:first_name_kana]).to include("はカタカナで入力してください")
+      end
     end
-
+    
     it"birthdayが空では登録できないこと" do
       @user.birthday = nil
       @user.vaild?
