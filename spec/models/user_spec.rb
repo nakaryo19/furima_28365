@@ -6,14 +6,14 @@ RSpec.describe User, type: :model do
       @user = FactoryBot.build(:user)
     end
 
-    it "nicnameとemail、passwordとpassword_confirmationが存在すれば登録できること" do
+    it "nicknameとemail、passwordとpassword_confirmationが存在すれば登録できること" do
       expect(@user).to be_valid
     end
 
-    it "nicnameが空では登録できないこと" do
-      @user.nicname = nil
+    it "nicknameが空では登録できないこと" do
+      @user.nickname = nil
       @user.vaild?
-      expect(@user.errors.full_messages).to include("Nicname can't be blank")
+      expect(@user.errors.full_messages).to include("Nickname can't be blank")
     end
 
     it "emailが空では登録できないこと" do
