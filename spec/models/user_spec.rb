@@ -69,6 +69,13 @@ RSpec.describe User, type: :model do
         assert_equal(format, user.errors.full_messages)
       end
     end
+    
+    it "passwordが7文字以上で、英数字の組み合わせであれば登録できること" do
+      user = build(:user, password: "abcd123", password_confirmation: "abcd123")
+      user.valid?
+      expect(user).to be_valid
+    end
+
 
     it"family_nameが空では登録できないこと" do
       @user.family_name = nil
