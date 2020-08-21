@@ -1,6 +1,8 @@
 FactoryBot.define do
   factory :item do
 
+    id {4}
+    user_id {1}
     name {"ネクタイ"}
     text {"2020年就活"}
     category_id {1}
