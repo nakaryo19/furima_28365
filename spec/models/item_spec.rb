@@ -8,7 +8,7 @@ RSpec.describe Item, type: :model do
 
     context '空の場合のテスト'
       it "画像がない場合は無効です" do
-       item = build(:item, image:[] )
+       @item.image = nil
        item.valid?
        expect(item.errors[:image]).to include("を入力してください")
       end
