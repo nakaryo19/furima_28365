@@ -74,7 +74,7 @@ RSpec.describe Item, type: :model do
       it "300円未満の場合は無効です" do
         @item.price = "299"
         @item.valid?
-        expect(@item.errors.full_messages).to include("Price is not included in the list")
+        expect(@item.errors.full_messages).to include("Price is not included in the listhu")
       end
     end
 
