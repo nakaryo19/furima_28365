@@ -7,11 +7,6 @@ function price(){
     priceInput.addEventListener('keyup', () => {
         const value = priceInput.value; //value（入力の金額を定義）
         
-        
-      
-        //list.insertAdjacentHTML("afterend", HTML);//inner HTML
-     
-       //let input = $(this).val();
       if (value >= 300 && value <= 9999999){
         let fee = value * 0.1
         let gains = value - fee
@@ -21,7 +16,7 @@ function price(){
       let fee = '-';
       let gains = '-';
       add_tax.textContent = fee;
-      rofit.textContent = gains;
+      profit.textContent = gains;
     }
   });
  
