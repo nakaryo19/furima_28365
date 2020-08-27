@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
   root 'items#index'
   
-  resources :items do #only: [:index, :new, :create, :show] do
+  resources :items do
+    resources :buyer, only: [:index, :new, :create] 
   end
 end
