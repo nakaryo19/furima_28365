@@ -9,12 +9,7 @@ class BuyerOrder
   validates :prefectures_id, numericality: { other_than: 0, message: "can't be blank" }
 
   def save
-    # ユーザーの情報を保存し、「user」という変数に入れている
-    #user = User.create(name: name, name_reading: name_reading, nickname: nickname)
-
-    # 寄付金の情報を保存
     order = Order.create(user_id: user_id, item_id: item_id)
-    # 住所の情報を保存
     Buyer.create!(post_number: post_number, prefectures_id: prefectures_id, city: city, address: address, building_name: building_name, phone_number: phone_number, order_id: order.id)
   end
 end

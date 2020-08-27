@@ -53,8 +53,14 @@ RSpec.describe BuyerOrder, type: :model do
         expect(@buyer_order.errors.full_messages).to include("Prefectures can't be blank")
       end
 
-      it '電話番号がハイフンなしで11桁以内でないと保存できないこと' do
+      it '電話番号がハイフンなしでない場合保存できないこと' do
         @buyer_order.phone_number = '080-5353-5353'
+        @buyer_order.valid?
+        expect(@buyer_order.errors.full_messages).to include("Phone number is invalid")
+      end
+
+      it '電話番号が11桁以内でない場合保存できないこと' do
+        @buyer_order.phone_number = '080053535353'
         @buyer_order.valid?
         expect(@buyer_order.errors.full_messages).to include("Phone number is invalid")
       end

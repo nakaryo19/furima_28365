@@ -1,7 +1,7 @@
 class BuyerController < ApplicationController
+  before_action :set_item, only: [:index, :create]
 
   def index
-    @item = Item.find(params[:item_id])
   end
 
   def new
@@ -9,7 +9,6 @@ class BuyerController < ApplicationController
   end
 
   def create
-    @item = Item.find(params[:item_id])
     @buyer = BuyerOrder.new(buyer_params)
     if @buyer.valid?
       pay_item
@@ -27,12 +26,16 @@ class BuyerController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  # PAY.JPテスト秘密鍵
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]  
     Payjp::Charge.create(
-      amount: @item.price,  # 商品の値段
-      card: buyer_params[:token],    # カードトークン
-      currency:'jpy'                 # 通貨の種類(日本円)
+      amount: @item.price,  
+      card: buyer_params[:token],    
+      currency:'jpy'                
     )
+  end
+
+  def set_item
+    @item = Item.find(params[:item_id])
   end
 
 end
