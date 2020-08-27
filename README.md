@@ -37,7 +37,7 @@
 - has_one :order
 
 
-## bayer テーブル
+## buyer テーブル
 
 | Column      | Type      | Options            |
 | ------      | ------    | -----------        |
@@ -53,7 +53,7 @@
 ### Association
 - belongs_to :order
 
-## orders テーブル
+## order テーブル
 | Column      | Type      | Options            |
 | ------      | ------    | -----------        |
 | user        | reference | null: false,FK:true|
@@ -62,4 +62,4 @@
 ### Association
 - belongs_to :user
 - belongs_to :item
-- has_one :bayer
+- has_one :buyer
