@@ -43,23 +43,23 @@
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%= link_to @item.category_id %></td>
+          <td class="detail-value"><%= link_to @item.category.name %></td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
-          <td class="detail-value"><%= link_to @item.product_id %></td>
+          <td class="detail-value"><%= link_to @item.product.name %></td>
         </tr>
         <tr>
           <th class="detail-item">配送料の負担</th>
-          <td class="detail-value"><%= link_to @item.delivery_id %></td>
+          <td class="detail-value"><%= link_to @item.delivery.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送元の地域</th>
-          <td class="detail-value"><%= link_to @item.area_id %></td>
+          <td class="detail-value"><%= link_to @item.area.name %></td>
         </tr>
         <tr>
           <th class="detail-item">発送日の目安</th>
-          <td class="detail-value"><%= link_to @item.days_id %></td>
+          <td class="detail-value"><%= link_to @item.days.name %></td>
         </tr>
       </tbody>
     </table>

@@ -4,7 +4,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :product
   belongs_to_active_hash :delivery
   belongs_to_active_hash :area
-  belongs_to_active_hash :day
+  belongs_to_active_hash :days
 
   belongs_to :user
   has_one :order
