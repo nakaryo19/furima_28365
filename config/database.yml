@@ -13,20 +13,23 @@ default: &default
   adapter: mysql2
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: root
-  password:
-  socket: /tmp/mysql.sock
+  database: heroku_46fe54814f0978b
+  host: us-cdbr-east-02.cleardb.com
+  username: b22aaf1e7f4d66
+  password: e2a151fc
+  # socket: /tmp/mysql.sock
+  
 
 development:
   <<: *default
-  database: furima_28365_development
+  # database: furima_28365_development
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: furima_28365_test
+  # database: furima_28365_test
 
 # As with config/credentials.yml, you never want to store sensitive information,
 # like your database password, in your source code. If your source code is
@@ -49,6 +52,6 @@ test:
 #
 production:
   <<: *default
-  database: furima_28365_production
-  username: furima_28365
-  password: <%= ENV['FURIMA_28365_DATABASE_PASSWORD'] %>
+  # database: furima_28365_production
+  # username: furima_28365
+  # password: <%= ENV['FURIMA_28365_DATABASE_PASSWORD'] %>
