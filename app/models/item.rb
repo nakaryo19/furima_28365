@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :days
 
   belongs_to :user
+  belongs_to :storage
   has_one :order
   has_one_attached :image
 

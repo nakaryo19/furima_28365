@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :items do
     resources :buyer, only: [:index, :new, :create] 
   end
+  get 'items/search'
 end

@@ -2,9 +2,11 @@ class ItemsController < ApplicationController
   before_action :move_to_index, except: [:index, :create, :show]
   before_action :set_item, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!, except:[:index, :show]
+  # before_action :search_item, only: [:index, :search]
 
   def index
     @items = Item.all.order("created_at DESC")
+    @parents = Storage.where(ancestry: nil)
   end
 
   def new
@@ -46,6 +48,10 @@ class ItemsController < ApplicationController
     end
   end
 
+  # def search
+  #   @results = @p.result.includes(:storage) 
+  # end
+
   private
   def item_params
     params.require(:item).permit(:name, :text, :image, :category_id, :product_id, :delivery_id, :area_id, :days_id, :price).merge(user_id: current_user.id)
@@ -60,4 +66,8 @@ class ItemsController < ApplicationController
   def set_item
     @item = Item.find(params[:id])
   end
+
+  # def search_item
+  #   @p = Item.ransack(params[:q]) 
+  # end
 end
